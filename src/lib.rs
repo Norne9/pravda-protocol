@@ -58,6 +58,7 @@ pub enum ResponseData {
     // User responses:
     Login {
         token: String,
+        id: UserId,
     },
     UserInfo(User),
     Schedule {
