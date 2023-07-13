@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use thiserror::Error;
 
-pub type UserId = u64;
+pub type UserId = i32;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum Request {
