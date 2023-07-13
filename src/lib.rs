@@ -102,10 +102,8 @@ pub struct User {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Salary {
     pub id: UserId,
-    pub first: f64,
-    pub first_days: u8,
-    pub second: f64,
-    pub second_days: u8,
+    pub total: f64,
+    pub paid: f64,
 }
 
 #[derive(Serialize, Deserialize, Error, Debug)]
