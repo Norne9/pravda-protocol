@@ -6,7 +6,12 @@ pub type UserId = i32;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum Request {
-    // User requests:
+    User(UserRequest),
+    Admin(AdminRequest),
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub enum UserRequest {
     Login {
         login: String,
         password: String,
@@ -29,7 +34,10 @@ pub enum Request {
     GetUserNames {
         ids: Vec<UserId>,
     },
-    // Admin requests:
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub enum AdminRequest {
     GetUsers,
     AddUser(User),
     ResetPassword {
@@ -115,6 +123,8 @@ pub enum ProtocolError {
     Forbidden,
     #[error("Войдите снова")]
     UnknownToken,
-    #[error("Неизвестная ошибка")]
-    Unknown,
+    #[error("Пользователь уже существует")]
+    UserExist,
+    #[error("Неизвестная ошибка: {0}")]
+    Unknown(String),
 }
