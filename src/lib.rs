@@ -51,7 +51,7 @@ pub enum AdminRequest {
     SetRevenue {
         year: u16,
         month: u8,
-        revenue: Vec<Revenue>,
+        revenue: Revenue,
     },
     GetSalaryCalculation {
         year: u16,
@@ -93,6 +93,7 @@ pub enum ResponseData {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Revenue {
+    pub day: u8,
     pub with_percent: f64,
     pub without_percent: f64,
 }
